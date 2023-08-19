@@ -1,23 +1,33 @@
 # js_input_modal
 
-code snippet to use input modal 
+A simple JavaScript function to display an input modal and collect user data.
 
-Functions: 
-showModal()
-calling this function will append a modal in document root and return a promise of user object.
+## Usage
+
+The `showModal` function can be used to display a modal for user input.
+
+### `showModal()`
+
+```javascript
 try {
-        let user = await showModal();
-        console.log(user);
-        }catch (error){
-            console.error(error.message);
-        }  
+    let user = await showModal();
+    console.log(user);
+} catch (error) {
+    console.error(error.message);
+}
+```
+Calling this function will append a modal to the document root and return a Promise that resolves with the user object after submission. If the modal is closed without submitting, an error is thrown.
 
-showModal(user)
-append a modal in document root with prefilled data (user object) and return a promise.
+### `showModal(user)`
 
- try {
-    let updateduser = await showModal(user);
-    console.log(updateduser);
-    }catch (error){
-        console.error(error.message);
-    }
+```javascript
+try {
+    let updatedUser = await showModal(user);
+    console.log(updatedUser);
+} catch (error) {
+    console.error(error.message);
+}
+```
+Calling this function with a user object will append a modal with pre-filled data and return a Promise that resolves with the updated user data after submission. If the modal is closed without submitting, an error is thrown.
+
+
