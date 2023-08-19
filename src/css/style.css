@@ -1,0 +1,14 @@
+body{
+    padding: 10%;
+}
+table{
+    width: 100%;
+    margin: auto;
+}
+thead{
+    width: 100%;
+    background-color: burlywood;
+}
+td{
+    justify-content: center;
+}
