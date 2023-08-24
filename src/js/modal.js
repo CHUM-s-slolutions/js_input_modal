@@ -1,3 +1,49 @@
+function displayModal( user = 'null') {
+        let id = "js_modal";
+   
+        let name = "";
+        let address = "";
+        let phone = "";
+        let uid = '';
+        if (user !== 'null') {
+            name = user.Name != 'undefined' ? user.Name : "";
+            address = user.Address != 'undefined' ? user.Address : "";
+            phone = user.Phone != 'undefined' ? user.Phone : "";
+            uid = user.id != 'undefined' ? user.id : null;
+        }
+        const modal = document.getElementById(id);
+        const modalClose = document.getElementById("modalClose");
+        const modalSubmit = document.getElementById("modalSubmit");
+        const nameInput = document.getElementById("name");
+        const addressInput = document.getElementById("address");
+        const phoneInput = document.getElementById("phone");
+
+        return new Promise((resolve, reject) => {
+            modal.style.display = "block";
+            try {
+                nameInput.value = name;
+                addressInput.value = address;
+                phoneInput.value = phone;
+            } catch (error) {
+                reject(new Error(error))
+            }
+            modalSubmit.addEventListener("click", () => {
+                const name = nameInput.value;
+                const address = addressInput.value;
+                const phone = phoneInput.value;
+                const userData = { id: uid, Name: name, Address: address, Phone: phone };
+
+                modal.style.display = "none";
+                resolve(userData);
+            });
+
+            modalClose.addEventListener("click", () => {
+                modal.style.display = "none";
+                reject(new Error("Modal closed without submitting."));
+            });
+        });
+    
+}
 function showModal(user = 'null', modal_id = "user_modal") {
     let name = "";
     let address = "";

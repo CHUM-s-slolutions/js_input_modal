@@ -56,7 +56,7 @@ function updateData(updateduser) {
 }
 async function add() {
     try {
-        let user = await displayModal();
+        let user = await showModal();
         AddUser(user);
         }catch (error){
             console.error(error.message);
@@ -65,7 +65,7 @@ async function add() {
 async function edit(user_id) {
    
     try {
-    let updateduser = await displayModal(getUserById(user_id));
+    let updateduser = await showModal(getUserById(user_id));
     updateData(updateduser);
     }catch (error){
         console.error(error.message);
