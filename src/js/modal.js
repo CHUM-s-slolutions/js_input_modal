@@ -28,13 +28,19 @@ function displayModal( user = 'null') {
                 reject(new Error(error))
             }
             modalSubmit.addEventListener("click", () => {
+               try {
                 const name = nameInput.value;
                 const address = addressInput.value;
                 const phone = phoneInput.value;
                 const userData = { id: uid, Name: name, Address: address, Phone: phone };
-
                 modal.style.display = "none";
                 resolve(userData);
+            } catch (error) {
+                modal.style.display = "none";
+                reject(new Error(error))
+               }
+
+               
             });
 
             modalClose.addEventListener("click", () => {
